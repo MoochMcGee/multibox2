@@ -9,8 +9,13 @@ enum
 };
 
 const cpu_t::opcode_info cpu_t::cpu_opcode_table[] = {
+    {0x73, 0, 0, &cpu_t::jmp_nc_i8, false},
     {0x75, 0, 0, &cpu_t::jmp_nz_i8, false},
+    {0x79, 0, 0, &cpu_t::jmp_ns_i8, false},
+    {0x7b, 0, 0, &cpu_t::jmp_np_i8, false},
     {0x90, 0, 0, &cpu_t::nop, false},
+    {0x9e, 0, 0, &cpu_t::sahf, false},
+    {0x9f, 0, 0, &cpu_t::lahf, false},
     {0xb0, 0, 0, &cpu_t::mov_al_i8, false},
     {0xb1, 0, 0, &cpu_t::mov_cl_i8, false},
     {0xb2, 0, 0, &cpu_t::mov_dl_i8, false},

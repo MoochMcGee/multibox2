@@ -115,7 +115,7 @@ int main(int ac, char **av)
         fclose(fp2);
     }
 
-    cpu.run(10);
+    cpu.run(20);
 
     return 0;
 }

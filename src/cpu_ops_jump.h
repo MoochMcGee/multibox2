@@ -1,7 +1,25 @@
+void cpu_t::jmp_nc_i8()
+{
+    s8 off = fetchb(ip++);
+    if(!eflags.carry) ip += (s8)off;
+}
+
 void cpu_t::jmp_nz_i8()
 {
     s8 off = fetchb(ip++);
     if(!eflags.zero) ip += (s8)off;
+}
+
+void cpu_t::jmp_np_i8()
+{
+    s8 off = fetchb(ip++);
+    if(!eflags.parity) ip += (s8)off;
+}
+
+void cpu_t::jmp_ns_i8()
+{
+    s8 off = fetchb(ip++);
+    if(!eflags.sign) ip += (s8)off;
 }
 
 void cpu_t::jmp_rel8()

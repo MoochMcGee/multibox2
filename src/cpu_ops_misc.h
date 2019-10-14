@@ -2,6 +2,17 @@ void cpu_t::nop()
 {
 }
 
+void cpu_t::sahf()
+{
+    eflags.word &= ~0xd5;
+    eflags.word |= AH & 0xd5;
+}
+
+void cpu_t::lahf()
+{
+    AH = eflags.word & 0xd5;
+}
+
 void cpu_t::cli()
 {
     bool protected_mode = cr[0] & 1;

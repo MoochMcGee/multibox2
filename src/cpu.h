@@ -138,8 +138,13 @@ struct cpu_t
 
     opcode_func opcode_table_1byte_16[256];
 
+    void jmp_nc_i8();
     void jmp_nz_i8();
+    void jmp_ns_i8();
+    void jmp_np_i8();
     void nop();
+    void sahf();
+    void lahf();
     void mov_al_i8();
     void mov_cl_i8();
     void mov_dl_i8();
